@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
+import 'package:spotify/presentation/choose_mode/pages/choose_mode.dart';
 
 import '../../../core/configs/assets/app_images.dart';
 import '../../../core/configs/assets/app_vectors.dart';
@@ -20,6 +21,16 @@ class GetStartedPage extends StatelessWidget {
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.fill, image: AssetImage(AppImages.introBG))),
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.15),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(
+                vertical: 40,
+                horizontal: 40
+            ),
             child: Column(
               children: [
                 Align(
@@ -48,16 +59,13 @@ class GetStartedPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 BasicAppButton(
                     onPressed: () {
-                      //TODO: Navigate to the next page
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const ChooseModePage()));
                     },
                     title: 'Get Started'
                 )
               ],
             ),
           ),
-          Container(
-            color: Colors.black.withOpacity(0.15),
-          )
         ],
       ),
     );
